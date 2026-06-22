@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>九游 · 稳定游戏入口与指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f2f8fb;
+            color: #1c2b36;
+            line-height: 1.6;
+            padding: 0 1rem 3rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* hero 区 */
+        .hero {
+            margin-top: 2.5rem;
+            background: linear-gradient(135deg, #e0f2f1 0%, #d4edf0 100%);
+            border-radius: 2rem;
+            padding: 2.8rem 2rem 3.2rem;
+            text-align: center;
+            box-shadow: 0 12px 24px -10px rgba(0, 128, 128, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 180, 180, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #005f6a;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #2f5f6b;
+            max-width: 600px;
+            margin: 0.5rem auto 1.8rem;
+            line-height: 1.7;
+        }
+
+        .hero .intro-link {
+            display: inline-block;
+            background: #ffffffd9;
+            backdrop-filter: blur(2px);
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            font-weight: 500;
+            color: #006d7a;
+            border: 1px solid rgba(0, 128, 128, 0.2);
+            box-shadow: 0 2px 6px rgba(0, 100, 100, 0.04);
+            transition: background 0.2s ease, box-shadow 0.2s;
+        }
+
+        .hero .intro-link:hover {
+            background: #ffffff;
+            box-shadow: 0 4px 14px rgba(0, 110, 110, 0.12);
+        }
+
+        .hero .intro-link a {
+            color: #006d7a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* 通用卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.6rem;
+            margin: 2.8rem 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 1.6rem;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 4px 12px rgba(0, 90, 90, 0.04);
+            border: 1px solid #dceff0;
+            transition: transform 0.1s ease, border-color 0.15s;
+        }
+
+        .card:hover {
+            border-color: #b3dfe0;
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #005f6a;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card h3::before {
+            content: '◈';
+            color: #2fa5a5;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            color: #2a4a52;
+            font-size: 0.97rem;
+        }
+
+        .card .tag {
+            margin-top: 0.8rem;
+            display: inline-block;
+            background: #edf7f7;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #007577;
+        }
+
+        /* 说明区 – 精简段落 */
+        .explain-block {
+            background: #ffffff;
+            border-radius: 1.6rem;
+            padding: 2.2rem 2rem;
+            margin: 2.2rem 0;
+            border-left: 6px solid #2fa5a5;
+            box-shadow: 0 4px 14px rgba(0, 100, 100, 0.04);
+        }
+
+        .explain-block h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #004d56;
+            margin-bottom: 1rem;
+        }
+
+        .explain-block p {
+            margin-bottom: 1.1rem;
+            color: #2a4f58;
+        }
+
+        .explain-block .highlight {
+            background: #e3f2f2;
+            padding: 0.1rem 0.4rem;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 1.6rem;
+            padding: 2rem 1.8rem;
+            margin: 2.2rem 0;
+            border: 1px solid #d2e8e8;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #004d56;
+            margin-bottom: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .faq-summary h2::after {
+            content: '?';
+            background: #d4edf0;
+            color: #006d7a;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            font-size: 1rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item strong {
+            color: #005f6a;
+            display: block;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            color: #2e535d;
+            font-size: 0.96rem;
+            margin-left: 0.4rem;
+        }
+
+        .faq-more {
+            margin-top: 1.2rem;
+            font-size: 0.95rem;
+            color: #2f6b75;
+        }
+
+        /* 底部 */
+        .bottom-section {
+            margin-top: 2.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid #d0e4e4;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bottom-section p {
+            color: #3e6570;
+            font-size: 0.9rem;
+        }
+
+        .bottom-link {
+            background: #e5f3f3;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            color: #006a73;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.15s;
+        }
+
+        .bottom-link:hover {
+            background: #cbe5e5;
+        }
+
+        .inline-link {
+            color: #007a85;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #a3d5d5;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #007a85;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero .sub {
+                font-size: 1rem;
+            }
+            .card-grid {
+                gap: 1.2rem;
+            }
+            .explain-block {
+                padding: 1.6rem 1.2rem;
+            }
+            .bottom-section {
+                flex-direction: column;
+                gap: 0.8rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1>稳定入口 · 九游</h1>
+        <div class="sub">
+            一个偏向生活化、随时可用的游戏页面指南，帮你快速了解平台特点与访问方式。
+        </div>
+        <div class="intro-link">
+            <a href="https://my9game.com">九游</a>
+        </div>
+    </div>
+
+    <!-- 优势区：网格卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>页面简洁</h3>
+            <p>去除了繁杂广告与多重跳转，保留最直接的导航和游戏目录，减少干扰。</p>
+            <span class="tag">稳定呈现</span>
+        </div>
+        <div class="card">
+            <h3>多端适配</h3>
+            <p>无论在手机、平板还是电脑上，布局自动调整，常用功能一触即达。</p>
+            <span class="tag">移动优先</span>
+        </div>
+        <div class="card">
+            <h3>日常更新</h3>
+            <p>页面内容与推荐保持相对新鲜，适合作为固定书签或常态访问起点。</p>
+            <span class="tag">持续维护</span>
+        </div>
+    </div>
+
+    <!-- 说明区：从稳定入口与页面说明切入 -->
+    <div class="explain-block">
+        <h2>关于这个页面 & 稳定访问思路</h2>
+        <p>
+            不少朋友需要一个直白、少绕弯子的游戏页面——<a href="https://my9game.com" class="inline-link">九游</a>
+            的页面设计本身偏向功能型，没有太多花哨装饰。这里整理了几条日常使用小建议：
+        </p>
+        <p>
+            <span class="highlight">直接收藏</span> 将地址加入浏览器书签或手机桌面，下次打开就是熟悉的界面。
+            同时页面结构清晰，没有强制弹窗，适合快速扫一眼当日内容。
+        </p>
+        <p>
+            <span class="highlight">当作“据点”</span> 遇到感兴趣的板块可以多停留一会，页面内的分类卡片和标签都采用低饱和蓝绿色，长时间看也不累。
+        </p>
+        <p>
+            如果你习惯用微信内置浏览器或 Safari 打开，页面同样表现良好；字体大小、按钮间距都为触屏做了优化。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h2>简短 FAQ</h2>
+        <div class="faq-item">
+            <strong>页面打不开或加载慢怎么办？</strong>
+            <p>先检查网络连接，或者尝试切换 Wi-Fi / 移动数据。另外可以清除浏览器缓存再试一次。</p>
+        </div>
+        <div class="faq-item">
+            <strong>推荐什么场景使用？</strong>
+            <p>午休、通勤、睡前浏览都合适，页面没有自动播放的音视频，比较安静。</p>
+        </div>
+        <div class="faq-item">
+            <strong>如何快速回到这个地方？</strong>
+            <p>收藏本页，或记住域名：my9game.com 。建议设置为主页或快捷方式。</p>
+        </div>
+        <div class="faq-more">
+            · 更多细节可以在页面内慢慢探索。
+        </div>
+    </div>
+
+    <!-- 底部链接区域 -->
+    <div class="bottom-section">
+        <p>基于日常使用习惯整理 · 蓝绿色点缀</p>
+        <span>
+            <a href="https://my9game.com" class="bottom-link">九游</a>
+        </span>
+    </div>
+
+</div>
+</body>
+</html>
