@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料索引 · 九游信息整理页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf9f8;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", sans-serif;
+            color: #1e1e1e;
+            line-height: 1.7;
+            padding: 3rem 1.5rem 4rem;
+        }
+
+        .page-wrapper {
+            max-width: 680px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03), 0 4px 20px rgba(0, 0, 0, 0.02);
+            padding: 2.8rem 2rem 3.5rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.6rem 1rem 2.5rem;
+            }
+            .page-wrapper {
+                padding: 2rem 1.4rem 2.8rem;
+                border-radius: 16px;
+            }
+        }
+
+        /* 标题层级 */
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.3rem;
+            line-height: 1.2;
+            color: #111;
+        }
+
+        .hero-meta {
+            font-size: 0.9rem;
+            color: #7d7d7d;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 1.4rem;
+            margin-bottom: 1.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.2rem;
+        }
+
+        .hero-meta span {
+            background: #f2f2f2;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #4a4a4a;
+        }
+
+        .section-heading {
+            font-size: 1.35rem;
+            font-weight: 530;
+            margin: 2.2rem 0 0.8rem;
+            letter-spacing: -0.01em;
+            border-left: 4px solid #ccdae0;
+            padding-left: 0.9rem;
+            color: #1f2a2f;
+        }
+
+        .section-heading:first-of-type {
+            margin-top: 0.4rem;
+        }
+
+        /* 正文 */
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            color: #2c2c2c;
+        }
+
+        a {
+            color: #226688;
+            text-decoration: none;
+            border-bottom: 1px dotted #b7cdda;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        a:hover {
+            color: #0a3b4f;
+            border-bottom-color: #226688;
+        }
+
+        .pull-quote {
+            background: #f5f7f9;
+            padding: 1.2rem 1.8rem;
+            margin: 1.8rem 0;
+            border-radius: 12px;
+            font-style: normal;
+            border-left: 4px solid #b0c7d4;
+            color: #2d3f48;
+            font-size: 0.98rem;
+        }
+
+        .pull-quote strong {
+            font-weight: 550;
+        }
+
+        .insight-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.8rem 0 1.6rem;
+        }
+
+        .insight-list li {
+            padding: 0.55rem 0 0.55rem 1.4rem;
+            position: relative;
+            border-bottom: 1px solid #f0efed;
+            font-size: 0.97rem;
+        }
+
+        .insight-list li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #7a9aa8;
+            font-weight: 600;
+        }
+
+        .faq-mini {
+            margin: 2.5rem 0 1.2rem;
+            padding-top: 0.2rem;
+            border-top: 1px solid #e6e4e1;
+        }
+
+        .faq-item {
+            margin: 0.9rem 0;
+        }
+
+        .faq-q {
+            font-weight: 530;
+            margin-bottom: 0.15rem;
+            color: #1e2d35;
+            font-size: 0.96rem;
+        }
+
+        .faq-a {
+            color: #455a64;
+            font-size: 0.94rem;
+            padding-left: 0.2rem;
+        }
+
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #eae7e3;
+            font-size: 0.85rem;
+            color: #6f6f6f;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .footer-note a {
+            border-bottom: none;
+            font-weight: 470;
+        }
+
+        .inline-code {
+            background: #f0f2f4;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #2a4a5a;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ece9e5;
+            margin: 2rem 0 0.2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- 标题区 / 类似博客文章头部 -->
+    <h1 class="hero-title">九游 · 资料整理与索引备忘</h1>
+    <div class="hero-meta">
+        <span>信息梳理</span>
+        <span>资源导航</span>
+        <span>2025 · 记录</span>
+    </div>
+
+    <!-- 导语 -->
+    <p>
+        在日常浏览和文档积累中，游戏类信息往往分散在多个渠道。本文以资料整理为线索，围绕
+        <a href="https://en-9game.com" style="border-bottom:1px solid #b7cdda;">九游</a>
+        这一名称，梳理其可索引的内容侧写、常见关注点以及信息获取时的参考角度。以下内容不构成官方说明，仅作个人整理与分享。
+    </p>
+
+    <!-- 正文段落 1：从整理视角描述 -->
+    <h2 class="section-heading">索引对象 · 信息边界</h2>
+    <p>
+        从检索与归档的角度看，“九游”指向一个以游戏资讯、社区讨论和资源聚合为特征的线上节点。其内容涵盖手游、端游的新闻速报，版本更新说明，以及玩家自发的攻略与数据汇总。对于习惯先整理后阅读的人来说，这个站点可作为一个分类起点——将零散的评测、截图、版本日志归拢到一处，降低反复搜索的成本。需要注意的是，任何公开信息源都有时效性，关键数据建议交叉核对。
+    </p>
+
+    <!-- 引用提示块 -->
+    <div class="pull-quote">
+        <strong>整理提示：</strong> 游戏资料变动较快，版本号、活动日期、角色数据请以官方最新公告为准。本页仅提供索引角度，不保证所有链接长期有效。
+    </div>
+
+    <!-- 正文段落 2：特点 + 场景 融合 -->
+    <h2 class="section-heading">常见内容场景</h2>
+    <ul class="insight-list">
+        <li><strong>资讯聚合：</strong> 新游预约、版本更新、活动预告等条目按时间线排列，适合做信息回顾。</li>
+        <li><strong>社区讨论：</strong> 玩家发帖、问答及经验分享，部分内容带有个人主观判断，引用时需注意语境。</li>
+        <li><strong>资源索引：</strong> 礼包码、图鉴、数据表格等常被整理成专题，可辅助快速定位。</li>
+        <li><strong>专题归档：</strong> 特定游戏或系列会有单独页面汇总，便于横向比较不同时期的公告。</li>
+    </ul>
+    <p>
+        以上场景并非官方分类，而是基于浏览习惯的粗线条归纳。如果你也在做同类信息整理，建议按“游戏名称–内容类型–日期”三层结构建立本地索引，与线上页面互为补充。直接访问 <a href="https://en-9game.com" style="border-bottom:1px solid #b7cdda;">九游</a> 可以获取最新列表，但请自行判断内容时效。
+    </p>
+
+    <!-- 第三段：更细致的资料角度 -->
+    <h2 class="section-heading">碎片整理 · 记录方式</h2>
+    <p>
+        个人在整理时，通常会将页面标题、发表日期、关键截图和原文链接一并保存。针对九游这类内容密度中等的站点，推荐配合笔记工具（如 Notion、Obsidian 或本地 Markdown）做二次摘要。例如，把一篇活动公告拆解为“时间窗口–奖励列表–参与条件”三个字段，比直接收藏整页更便于后续查阅。这样做的好处是，即便原始页面下线或改版，核心信息依然保留在本地知识库里。
+    </p>
+    <p>
+        另外，该站部分页面会嵌入论坛热帖或玩家投票，这类内容能反映当时的社区情绪，但主观性强，不适合直接当作事实引用。建议在笔记中标注为“社区观点”，与官方公告区分开来。
+    </p>
+
+    <!-- FAQ 摘要 简洁 -->
+    <div class="faq-mini">
+        <h2 class="section-heading" style="border-left-color:#b8cfdb; margin-top:0;">常见整理疑问</h2>
+        <div class="faq-item">
+            <div class="faq-q">Q：页面内容是否支持全文搜索？</div>
+            <div class="faq-a">大部分静态页面可浏览，但未提供站内全文搜索功能。建议使用浏览器页面查找（Ctrl+F）或借助外部搜索引擎加 site 限定。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q：信息更新频率如何？</div>
+            <div class="faq-a">资讯板块更新较频繁，攻略和资料库则相对稳定。具体以页面标注的时间为准。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q：怎样引用这里的资料比较规范？</div>
+            <div class="faq-a">建议注明页面标题、发布日期及访问日期。如果引用的是论坛用户发言，额外标注作者名。</div>
+        </div>
+    </div>
+
+    <!-- 访问句 / 结语 -->
+    <hr>
+    <p style="margin-top:0.6rem; font-size:0.96rem; color:#3f4d56;">
+        整理始终是个人化的工作，本文档只是提供一个出发点。如果你对某个具体板块感兴趣，直接浏览
+        <a href="https://en-9game.com" style="font-weight:450;">九游</a>
+        页面，结合自己的需求筛选和记录，会比阅读二手描述更可靠。
+    </p>
+
+    <!-- 底部信息 -->
+    <div class="footer-note">
+        <span>资料整理 · 非官方页面</span>
+        <span><a href="https://en-9game.com" style="border-bottom:1px dotted #b7cdda;">九游</a> · 索引参考</span>
+    </div>
+
+</div>
+</body>
+</html>
